@@ -8,17 +8,14 @@ module.exports = {
     path:          __dirname + '/dist',
     publicPath:    '/'
   },
-
   externals: { 'lodash': 'umd lodash' },
+  mode: 'production',
   module: {
-    loaders: [{
-      test: /\.js?$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: { presets: ['es2015', 'stage-0'] }
+    rules: [{
+      test: /\.js$/,
+      loader: 'babel-loader'
     }]
   },
-
   resolve: {
     extensions: ['.js']
   }

@@ -7,6 +7,7 @@ import {
 
 export {
   gatherFormData,
+  generateRoutes,
   promises,
   scrapeParams
 };

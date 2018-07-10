@@ -14,18 +14,13 @@ import reduce      from 'lodash/reduce';
  * @returns [Object]
  */
 function crudRoutes(name, root) {
-  return {
-    // Set local route
-    localRoute:  `/${name}`,
-    // Index route
-    indexRoute:  query => `${root}${this.localRoute}${!!query && isString(query) ? `?q=${query}` : ''}`,
-    // New route
-    newRoute:    () => `${this.indexRoute()}/new`,
-    // Option route
-    readRoute:   id => `${this.indexRoute()}/${id}`,
-    // Edit route
-    updateRoute: id => this.readRoute(id)
-  };
+  const localRoute = `/${name}`;
+  const indexRoute = query => `${root}${localRoute}${!!query && isString(query) ? `?q=${query}` : ''}`;
+  const newRoute = () => `${indexRoute()}/new`;
+  const readRoute = id => `${indexRoute()}/${id}`;
+  const updateRoute = id => readRoute(id);
+
+  return { localRoute, indexRoute, newRoute, readRoute, updateRoute };
 }
 
 /* Creates speific routes from an array and merges them into a single object

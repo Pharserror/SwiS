@@ -37,14 +37,14 @@ function constructRoutes(name, options, root) {
   return reduce(
     options,
     (routes, option) => (
-      merge(routes, { [option]: () => `${routes.indexRoute()}/${option}`})
+      merge(routes, { [option]: ({ id }) => `${routes.indexRoute()}/${id ? `${id}/` : ''}${option}`})
     ),
     crudRoutes(name, root)
   );
 }
 
 /* Generates an object from a config object that should be formatted as:
- * [
+ * (referenced as the variable "myConfig" below) [
  *   { route: { nestedRoute: {... : { deeplyNestedRoute: ['specificRoute', ...] } } } },
  *   "surfaceLevelRoute"
  * ]

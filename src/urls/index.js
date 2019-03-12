@@ -1,9 +1,10 @@
-import isArray     from 'lodash/isArray';
-import isNumber    from 'lodash/isNumber';
-import isObject    from 'lodash/isObject';
-import isString    from 'lodash/isString';
-import merge       from 'lodash/merge';
-import reduce      from 'lodash/reduce';
+import isArray  from 'lodash/isArray';
+import isEmpty  from 'lodash/isEmpty';
+import isNumber from 'lodash/isNumber';
+import isObject from 'lodash/isObject';
+import isString from 'lodash/isString';
+import merge    from 'lodash/merge';
+import reduce   from 'lodash/reduce';
 
 /* Generates CRUD actions for a root with a name like "root/name[/:id]"
  *

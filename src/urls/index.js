@@ -121,6 +121,10 @@ export function scrapeParams(currentLocation) {
     .substr(1)
     .split('&')
     .map(param => param.split('='))
-    .reduce((params, param) => ({ [param[0]]: param[1], ...params }))
+    .reduce((params, param) => (
+      param === undefined || (param.length === 1 && isEmpty(param[0]))
+      ? params
+      : { [param[0]]: param[1], ...params }
+    ), {})
   );
 }
